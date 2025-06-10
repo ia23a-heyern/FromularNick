@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benutzer-Registrierung</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      font-size: 3rem;
+      color: rgba(255, 165, 0, 0.3);
+      font-weight: bold;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .form-group {
+      position: relative;
+      z-index: 2;
+    }
+    .preview-section {
+      margin-top: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="form-container">
+    <h2 class="text-center mb-4">Auftrag 2 Benutzer-Erfassungsformular (mit Bootstrap)</h2>
+    <p class="text-center text-muted mb-4">Erstelle ein Online-Formular, über welches sich ein neuer Benutzer registrieren kann.</p>
+
+    <p><strong>Das Formular umfasst folgende Felder:</strong></p>
+    <ul class="mb-4">
+      <li>Nachname</li>
+      <li>Vorname</li>
+      <li>Gemeinde</li>
+      <li>PLZ</li>
+      <li>Kanton (Dropdown-Liste)</li>
+      <li>E-Mail-Adresse</li>
+      <li>Geburtsdatum</li>
+      <li>Benutzername</li>
+      <li>Passwort</li>
+      <li>«AGBs akzeptieren» (Checkbox)</li>
+      <li>Schaltfläche «Speichern» (Submit)</li>
+      <li>Bild (optional)</li>
+      <li>Eigene Idee (optional)</li>
+    </ul>
+
+    <p class="text-muted fst-italic text-center mb-4">(Hinweis: Alles kursiv Gedruckte ist Beispieltext und muss ersetzt oder gelöscht werden.)</p>
+
+    <form id="registrationForm" class="position-relative">
+      <div class="watermark">Muster</div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="vorname" class="form-label">Vorname</label>
+          <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Susanne" required>
+        </div>
+        <div class="col-md-6">
+          <label for="nachname" class="form-label">Nachname</label>
+          <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Oberholzer" required>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="gemeinde" class="form-label">Wohngemeinde</label>
+          <input type="text" class="form-control" id="gemeinde" name="gemeinde" placeholder="Kreuzthtal" required>
+        </div>
+        <div class="col-md-4">
+          <label for="benutzer_id" class="form-label">Benutzer-ID</label>
+          <input type="text" class="form-control" id="benutzer_id" name="benutzer_id" placeholder="soA schätzli" readonly>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="kanton" class="form-label">Kanton</label>
+          <select class="form-select" id="kanton" name="kanton" required>
+            <option value="">Kanton wählen...</option>
+            <option value="AG">Aargau (AG)</option>
+            <option value="AI">Appenzell Innerrhoden (AI)</option>
+            <option value="AR">Appenzell Ausserrhoden (AR)</option>
+            <option value="BE">Bern (BE)</option>
+            <option value="BL">Basel-Landschaft (BL)</option>
+            <option value="BS">Basel-Stadt (BS)</option>
+            <option value="FR">Freiburg (FR)</option>
+            <option value="GE">Genf (GE)</option>
+            <option value="GL">Glarus (GL)</option>
+            <option value="GR">Graubünden (GR)</option>
+            <option value="JU">Jura (JU)</option>
+            <option value="LU">Luzern (LU)</option>
+            <option value="NE">Neuenburg (NE)</option>
+            <option value="NW">Nidwalden (NW)</option>
+            <option value="OW">Obwalden (OW)</option>
+            <option value="SG">St. Gallen (SG)</option>
+            <option value="SH">Schaffhausen (SH)</option>
+            <option value="SO">Solothurn (SO)</option>
+            <option value="SZ">Schwyz (SZ)</option>
+            <option value="TG">Thurgau (TG)</option>
+            <option value="TI">Tessin (TI)</option>
+            <option value="UR">Uri (UR)</option>
+            <option value="VD">Waadt (VD)</option>
+            <option value="VS">Wallis (VS)</option>
+            <option value="ZG">Zug (ZG)</option>
+            <option value="ZH">Zürich (ZH)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="plz" class="form-label">PLZ</label>
+          <input type="text" class="form-control" id="plz" name="plz" placeholder="3326" pattern="[0-9]{4}" maxlength="4" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">E-Mail-Adresse</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
+          <input type="date" class="form-control" id="geburtsdatum" name="geburtsdatum" required>
+        </div>
+        <div class="col-md-6">
+          <label for="benutzername" class="form-label">Benutzername</label>
+          <input type="text" class="form-control" id="benutzername" name="benutzername" required>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwort" class="form-label">Passwort</label>
+        <input type="password" class="form-control" id="passwort" name="passwort" required minlength="6">
+        <div class="form-text">Mindestens 6 Zeichen</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="bild" class="form-label">Bild (optional)</label>
+        <input type="file" class="form-control" id="bild" name="bild" accept="image/*">
+      </div>
+
+      <div class="mb-3">
+        <label for="eigene_idee" class="form-label">Eigene Idee (optional)</label>
+        <textarea class="form-control" id="eigene_idee" name="eigene_idee" rows="3" placeholder="Hier können Sie zusätzliche Informationen eingeben..."></textarea>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="agbs" name="agbs" required>
+        <label class="form-check-label" for="agbs">
+          AGBs akzeptieren
+        </label>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg px-5">Speichern</button>
+      </div>
+    </form>
+
+    <div class="preview-section">
+      <h5>Beschreibung des Screenshots (hier: unvollständiges Muster)</h5>
+      <p>Auf unserer Firmen-Website können sich neue Benutzer mittels eines Online-Formulars registrieren. Das Formular umfasst die Felder Nachname, Vorname, Gemeinde, PLZ, Kanton (Dropdown-Liste), E-Mail-Adresse, Geburtsdatum, Benutzername, Passwort, «AGBs akzeptieren» (Checkbox), Schaltfläche «Speichern» (Submit).</p>
+
+      <div class="mt-4">
+        <h6>Vorschau der eingegebenen Daten:</h6>
+        <div class="row">
+          <div class="col-md-4">
+            <strong>&lt;Vorname, Name&gt;</strong>
+            <div id="preview-name" class="text-muted">-</div>
+          </div>
+          <div class="col-md-4">
+            <strong>&lt;Klasse&gt;</strong>
+            <div id="preview-class" class="text-muted">-</div>
+          </div>
+          <div class="col-md-4">
+            <strong>&lt;Datum&gt;</strong>
+            <div id="preview-date" class="text-muted">Seite 1 von 1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Live-Vorschau der Eingaben
+  function updatePreview() {
+    const vorname = document.getElementById('vorname').value;
+    const nachname = document.getElementById('nachname').value;
+    const kanton = document.getElementById('kanton').value;
+    const heute = new Date().toLocaleDateString('de-DE');
+
+    document.getElementById('preview-name').textContent =
+            (vorname || nachname) ? `${vorname} ${nachname}`.trim() : '-';
+    document.getElementById('preview-class').textContent = kanton || '-';
+    document.getElementById('preview-date').textContent = heute;
+  }
+
+  // Event Listener für Live-Updates
+  document.getElementById('vorname').addEventListener('input', updatePreview);
+  document.getElementById('nachname').addEventListener('input', updatePreview);
+  document.getElementById('kanton').addEventListener('change', updatePreview);
+
+  // Form-Validierung und Submission
+  document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Alle Formularfelder sammeln
+    const formData = new FormData(this);
+    const data = {};
+    for (let [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+
+    // Erfolgs-Nachricht anzeigen
+    const successAlert = document.createElement('div');
+    successAlert.className = 'alert alert-success alert-dismissible fade show mt-3';
+    successAlert.innerHTML = `
+                <strong>Registrierung erfolgreich!</strong>
+                Willkommen ${data.vorname} ${data.nachname}!
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+
+    this.appendChild(successAlert);
+
+    // Formular zurücksetzen nach 2 Sekunden
+    setTimeout(() => {
+      this.reset();
+      updatePreview();
+      if (successAlert.parentNode) {
+        successAlert.remove();
+      }
+    }, 3000);
+  });
+
+  // PLZ Validierung
+  document.getElementById('plz').addEventListener('input', function(e) {
+    e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+  });
+
+  // Automatische Benutzer-ID Generierung
+  function generateUserId() {
+    const vorname = document.getElementById('vorname').value;
+    const nachname = document.getElementById('nachname').value;
+    if (vorname && nachname) {
+      const userId = (vorname.substring(0, 2) + nachname.substring(0, 2)).toLowerCase();
+      document.getElementById('benutzer_id').value = userId;
+    }
+  }
+
+  document.getElementById('vorname').addEventListener('blur', generateUserId);
+  document.getElementById('nachname').addEventListener('blur', generateUserId);
+
+  // Initiale Vorschau
+  updatePreview();
+</script>
+</body>
+</html>
