@@ -7,23 +7,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <style>
     .form-container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 50px auto;
       padding: 30px;
       background: #f8f9fa;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-    .watermark {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      font-size: 3rem;
-      color: rgba(255, 165, 0, 0.3);
-      font-weight: bold;
-      pointer-events: none;
-      z-index: 1;
     }
     .form-group {
       position: relative;
@@ -39,33 +28,11 @@
   </style>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
   <div class="form-container">
-    <h2 class="text-center mb-4">Auftrag 2 Benutzer-Erfassungsformular (mit Bootstrap)</h2>
-    <p class="text-center text-muted mb-4">Erstelle ein Online-Formular, über welches sich ein neuer Benutzer registrieren kann.</p>
-
-    <p><strong>Das Formular umfasst folgende Felder:</strong></p>
-    <ul class="mb-4">
-      <li>Nachname</li>
-      <li>Vorname</li>
-      <li>Gemeinde</li>
-      <li>PLZ</li>
-      <li>Kanton (Dropdown-Liste)</li>
-      <li>E-Mail-Adresse</li>
-      <li>Geburtsdatum</li>
-      <li>Benutzername</li>
-      <li>Passwort</li>
-      <li>«AGBs akzeptieren» (Checkbox)</li>
-      <li>Schaltfläche «Speichern» (Submit)</li>
-      <li>Bild (optional)</li>
-      <li>Eigene Idee (optional)</li>
-    </ul>
-
-    <p class="text-muted fst-italic text-center mb-4">(Hinweis: Alles kursiv Gedruckte ist Beispieltext und muss ersetzt oder gelöscht werden.)</p>
+    <h2 class="text-center mb-4">Formular</h2>
 
     <form id="registrationForm" class="position-relative">
-      <div class="watermark">Muster</div>
-
       <div class="row mb-3">
         <div class="col-md-6">
           <label for="vorname" class="form-label">Vorname</label>
@@ -170,29 +137,6 @@
         <button type="submit" class="btn btn-primary btn-lg px-5">Speichern</button>
       </div>
     </form>
-
-    <div class="preview-section">
-      <h5>Beschreibung des Screenshots (hier: unvollständiges Muster)</h5>
-      <p>Auf unserer Firmen-Website können sich neue Benutzer mittels eines Online-Formulars registrieren. Das Formular umfasst die Felder Nachname, Vorname, Gemeinde, PLZ, Kanton (Dropdown-Liste), E-Mail-Adresse, Geburtsdatum, Benutzername, Passwort, «AGBs akzeptieren» (Checkbox), Schaltfläche «Speichern» (Submit).</p>
-
-      <div class="mt-4">
-        <h6>Vorschau der eingegebenen Daten:</h6>
-        <div class="row">
-          <div class="col-md-4">
-            <strong>&lt;Vorname, Name&gt;</strong>
-            <div id="preview-name" class="text-muted">-</div>
-          </div>
-          <div class="col-md-4">
-            <strong>&lt;Klasse&gt;</strong>
-            <div id="preview-class" class="text-muted">-</div>
-          </div>
-          <div class="col-md-4">
-            <strong>&lt;Datum&gt;</strong>
-            <div id="preview-date" class="text-muted">Seite 1 von 1</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
